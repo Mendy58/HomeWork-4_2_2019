@@ -1,0 +1,21 @@
+﻿@using PictureManagerLibrary;
+@model Picture
+
+@if (Model.Name == null)
+{
+	<div class="col-md-pull-5">
+		<form method="post" action="/Home/AddPassword">
+			<label>Insert password to view @Model.Name </label>
+			<input type="text" name="Password" />
+			<input type="hidden" value="@Model.id" name="id" />
+			<button class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+}
+else
+{
+	<h1>@Model.Description</h1>
+	<img style="width: 600px;" src="/UploadedImages/@Model.Name" />
+	<label>This image has been viewed @Model.Count Times before</label>
+}
+
