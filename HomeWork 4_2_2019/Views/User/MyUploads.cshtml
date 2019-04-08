@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PictureManagerLibrary.Picture>
+<h1>Home Page</h1>
+
+@if (Model != null)
+{
+	<table class="table table-bordered">
+		<tr>
+			<th>Id</th>
+			<th>Image</th>
+			<th>Description</th>
+			<th>Views</th>
+		</tr>
+
+		@foreach (var Picture in Model)
+		{
+			<tr>
+				<td>@Picture.id</td>
+				<td>
+					<img style="width: 200px;" src="/UploadedPictures/@Picture.Name" />
+				</td>
+				<td>
+					@Picture.Description
+				</td>
+				<td>
+					@Picture.Count
+				</td>
+			</tr>
+		}
+
+	</table>
+}
+else
+{
+	<h3>You haven't uploaded anything, you drunk irish-man!</h3>
+}
+

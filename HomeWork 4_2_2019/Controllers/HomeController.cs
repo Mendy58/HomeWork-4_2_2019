@@ -66,12 +66,14 @@ namespace HomeWork_4_2_2019.Controllers
             string fileName = $"{Guid.NewGuid()}{ext}";
             string fullPath = $"{Server.MapPath("/UploadedPictures")}\\{fileName}";
             image.SaveAs(fullPath);
-            
+
+            User s = mgr.GetByEmail(User.Identity.Name);
             int x = mgr.AddPic(new Picture
             {
                 Name = fileName,
                 Description = description,
-                Password = Password
+                Password = Password,
+                PersonId = s.id
             });
             return (RedirectToAction("Link", new { message = $"/Home/Image?id=" + x }));
         }

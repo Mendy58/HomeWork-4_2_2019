@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace PictureManagerLibrary
 {
-    public class Picture
+    public class User
     {
         public int id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public string Password { get; set; }
-        public int Count { get; set; }
-        public int PersonId { get; set; }
+        public string Email { get; set; }
+        public string PasswordHash { get; set; }
     }
 }
